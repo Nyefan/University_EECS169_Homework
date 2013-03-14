@@ -1,3 +1,18 @@
+################
+## Java
+################
+
+*.class
+
+################
+## NetBeans
+################
+
+*.xml
+*.mf
+*.properties
+Test*.java
+
 #################
 ## Eclipse
 #################
@@ -161,3 +176,6 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+/HW#2/AsciiArt/nbproject/private/
+/HW#2/SquareMatrix/nbproject/private/
+/HW#2/TestBed/nbproject/private/
