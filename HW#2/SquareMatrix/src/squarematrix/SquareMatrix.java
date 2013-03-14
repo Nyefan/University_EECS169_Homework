@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------*
- *  File Name: SquareMatrix.java                                |
+ *  File Name: SquareMatrix.java				|
  *  Author: Anthony Davis St. Aubin				|
  *  KUID: 2482383						|
  *  Email Address: a162s797@ku.edu				|
- *  Lab Number: 05                                              |
+ *  Homework Number: 02						|
  *  Description: Outputs a square matrix of user input size	|
  *    inputSize and its inverse.  The initial matrix consists of|
  *    integers arranged in ascending order first from left to	|
@@ -35,7 +35,7 @@ public class SquareMatrix {
     System.out.println("Square Matrix:");
     for(int ii = 0 ; ii < inputVar; ii++) {
       for(int jj = 1; jj <= inputVar; jj++) {
-	System.out.print(ii+jj + " ");
+	System.out.printf("%4d ",ii*inputVar+jj);
       }
       System.out.println("");
     }
@@ -43,7 +43,7 @@ public class SquareMatrix {
     System.out.println("Transpose:");
     for(int ii = 1; ii <= inputVar; ii++) {
       for(int jj = 0; jj < inputVar; jj++) {
-	System.out.print((ii + jj*inputVar) + " ");
+	System.out.printf("%4d ",(ii + jj*inputVar));
       }
       System.out.println("");
     }
