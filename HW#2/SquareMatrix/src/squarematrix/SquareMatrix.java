@@ -12,6 +12,8 @@
  *    from left to right.					|
  *  Last Changed: 13-March-2013					|
  ---------------------------------------------------------------*/
+package squarematrix;
+
 import java.util.Scanner;
 
 public class SquareMatrix {
@@ -19,7 +21,6 @@ public class SquareMatrix {
   public static void main(String[] args) {
 //    Initialize Necessaries
     Scanner keyboard01 = new Scanner(System.in);
-    boolean canContinue;
 
     askMatrixSize(); // Ask the User what size Matrix to Print;
     printMatrices(keyboard01.nextInt()); //Receive the User's input, and Print out the Square Matrix and its Inverse;
