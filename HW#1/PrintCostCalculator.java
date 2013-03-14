@@ -1,5 +1,3 @@
-package printcostcalculator;
-
 /*--------------------------------------------------------------*
  *  File Name: PrintCostCalculator.java				|
  *  Author: Anthony Davis St. Aubin				|
@@ -15,70 +13,91 @@ package printcostcalculator;
 ---------------------------------------------------------------*/
 import java.util.Scanner;
 public class PrintCostCalculator {
-  public static void main(String[] args) {
+  private static Scanner keyboard;
+  	public static void main(String[] args) {
 
-    double kdpp; //kilodots per page;
-    double cpp; //cost per page;
-    Scanner keyboard = new Scanner(System.in);
-    //Requests and declares the number of pages to be printed;
-    System.out.print(" --- Price Estimator Program ---\nEnter Number of Pages (digits only): ");
-    double NumberPages = keyboard.nextInt();
-    /*Displays as:
-             --- Price Estimator Program ---
-            Enter Number of Pages (digits only): []*/		
-    //Requests and declares the PrintType;
-    System.out.print("\n\n---- Select a Print Type ----\nEnter T or t for Text\nEnter I or i for Image\nEnter C or c for Compressed Text\nEnter S or s for Statement\n-----------------------------\nEnter Print Type: ");
-    String inputcharacter = keyboard.next();
-    char TempVar = inputcharacter.charAt(0);
-        //Determines ink usage based on PrintType;
-    if(TempVar == 'T' || TempVar == 't') {kdpp = 5;}
-    else if(TempVar == 'I' || TempVar == 'i') {kdpp = 10;}
-    else if(TempVar == 'C' || TempVar == 'c') {kdpp = 15;}
-    else if(TempVar == 'S' || TempVar == 's') {kdpp = 7;}
-    else {kdpp = 5000; System.out.println("Invalid entry for Print Type.\nPrint Type set to Text.\n");}
-        /*Displays as:
-            ---- Select a Print Type ----
-            Enter T or t for Text
-            Enter I or i for Image
-            Enter C or c for Compressed Text
-            Enter S or s for Statement
-            -----------------------------
-            Enter Print Type: []*/
-    //Requests and declares the PrintColorScheme;
-    System.out.print("\n\n--- Select a Print Color ---\nEnter 0 for Grayscale\nEnter 1 for Color\n-----------------------------\nEnter Print Color: ");
-            /*Displays as:
-            --- Select a Print Color ---
-            Enter 0 for Grayscale
-            Enter 1 for Color
-            -----------------------------
-            Enter Print Color: []*/
-    int PrintColorScheme = keyboard.nextInt();
-        if (PrintColorScheme == 0) {cpp = kdpp*0.05;}
-        else {cpp = kdpp*0.01;}
-    //Requests and declares the existence of a sale;
-    System.out.print("\n-----------------------------\nIs there a sale (y/n): ");
-    inputcharacter = keyboard.next();
-    System.out.print("\ninput successful");
-    TempVar = inputcharacter.charAt(0);
-    System.out.print("\ncasting successful");
-            /*Displays as:
-            -----------------------------
-            Is there a sale (y/n): []*/
-    if(TempVar == 'y' || TempVar == 'Y') {cpp = 0.5*cpp;}
-    System.out.print("\ncomparison successful");
 
-//Performs Operations to calculate cost based on user inputs;
-   
-    double TotalInk = 1000*kdpp*NumberPages;
-    double Subtotal = cpp*NumberPages;
-    double Tax = 0.0072*Subtotal;
-    double Total = Subtotal + Tax;
-    System.out.print("\ncalculations successful");
-    System.out.printf("\nTotalInk = %2d", TotalInk);
-    //Outputs Cost
-    System.out.printf("\n\n--- Cost Estimate ---\nInk Usage Per Page: %2e \nTotal Ink Usage: %2d \n\nEstimated Cost Per Page: $%4d \nSubtotal: $%,2d \nTax @ 0.72%: $%2d \nTotal Cost: $%2d", 
-    1000*kdpp,TotalInk,cpp,Subtotal,Tax,Total);
-  }  
+      //Initializes several variables and the user input
+  	  int kdpp; 												//kilodots per page;
+  	  double cpp; 												//cost per page;
+  	  keyboard = new Scanner(System.in);
+
+
+  	  //Requests and declares the number of pages to be printed;
+  	  System.out.print(
+    		" --- Price Estimator Program ---\n" +
+    		"Enter Number of Pages (digits only): ");
+  	  int NumberPages = keyboard.nextInt();
+  	  //NumberPages = NumberPages - NumberPages%1;				//from an older iteration
+  	  //System.out.print(NumberPages); 							//debugging
+
+
+  	  //Requests and declares the PrintType;
+  	  System.out.print(
+    		"\n\n" +
+    		"---- Select a Print Type ----\n" +
+    		"Enter T or t for Text\n" +
+    		"Enter I or i for Image\n" +
+    		"Enter C or c for Compressed Text\n" +
+    		"Enter S or s for Statement\n" +
+    		"-----------------------------\n" +
+    		"Enter Print Type: ");
+  	  String inputcharacter = keyboard.next();
+  	  char TempVar = inputcharacter.charAt(0);
+  	  //System.out.print(TempVar); 								//debugging
+
+
+  	  //Determines ink usage based on PrintType, defaulting to text;
+  	  if(TempVar == 'T' || TempVar == 't') {kdpp = 5;}
+  	  else if(TempVar == 'I' || TempVar == 'i') {kdpp = 10;}
+  	  else if(TempVar == 'C' || TempVar == 'c') {kdpp = 15;}
+  	  else if(TempVar == 'S' || TempVar == 's') {kdpp = 7;}
+  	  else {
+  		  kdpp = 5;
+  		  System.out.println(
+    			"Invalid entry for Print Type.\n" +
+    			"Print Type set to Text.");
+  	  }
+
+
+  	  //Requests and declares the PrintColorScheme, defaulting to Color;
+  	  System.out.print("\n\n" +
+    		"--- Select a Print Color ---\n" +
+    		"Enter 0 for Grayscale\n" +
+    		"Enter 1 for Color\n" +
+    		"-----------------------------\n" +
+    		"Enter Print Color: ");
+  	  //int PrintColorScheme = keyboard.nextInt(); 				//from an older iteration
+  	  //if (PrintColorCheme == 0) {cpp = kdpp*0.05;} 			//with an extra assignment
+  	  if (keyboard.nextInt() == 0) {cpp = kdpp*0.01;}
+  	  else {cpp = kdpp*0.05;}
+  	  //System.out.print(cpp); 									//debugging
+
+
+  	  //Requests and declares the existence of a sale;
+  	  System.out.print("\n" +
+    		"-----------------------------\n" +
+    		"Is there a sale (y/n): ");
+  	  inputcharacter = keyboard.next();
+  	  //System.out.print("\ninput successful");					//debugging
+  	  TempVar = inputcharacter.charAt(0);
+  	  //System.out.print("\ncasting successful");				//debugging
+  	  if((TempVar == 'y' || TempVar == 'Y') && NumberPages >= 200) {cpp = 0.5*cpp;}
+  	  //System.out.print("\ncomparison successful");			//debugging
+
+  	  //Calculates cost based on user inputs;
+  	  int dpp = 1000*kdpp; 										//dots per page
+  	  double TotalInkDots = dpp*NumberPages;
+  	  double Subtotal = cpp*NumberPages;
+  	  double Tax = 0.0072*Subtotal;
+  	  double Total = Subtotal + Tax;
+  	  //System.out.print("\ncalculations successful");			//debugging
+  	  System.out.println("\n\n--- Cost Estimate ---");
+  	  System.out.printf("Ink Usage Per Page: %d", dpp);
+  	  System.out.printf("\nTotal Ink Usage: %.2e", TotalInkDots);
+  	  System.out.printf("\n\nEstimated Cost Per Page: $%.4f", cpp);
+  	  System.out.printf("\nSubtotal: $%.2f", Subtotal);
+  	  System.out.printf("\nTax @ 0.72%%: $%.2f", Tax);
+  	  System.out.printf("\nTotal Cost: $%.2f", Total);
+  	}
 }
-    
-    
