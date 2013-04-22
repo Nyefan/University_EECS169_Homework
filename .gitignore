@@ -1,7 +1,6 @@
 ################
 ## Submissions
 ################
-Submission\*.java
 *.tar.gz
 
 ################
@@ -17,7 +16,6 @@ Submission\*.java
 *.xml
 *.mf
 *.properties
-Test*.java
 
 #################
 ## Eclipse
@@ -186,3 +184,4 @@ pip-log.txt
 /HW#2/SquareMatrix/nbproject/private/
 /HW#2/TestBed/nbproject/private/
 /HW#3/FightClub/nbproject/private/
+/HW#4/LineEditor/nbproject/private/
