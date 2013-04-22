@@ -35,7 +35,6 @@ public class LineEditor {
             text[textIndex] = newText[newTextIndex];
         }
         this.length += insertionLength;
-        System.out.print(length);
         return true;
     }
     
@@ -58,8 +57,7 @@ public class LineEditor {
         return true;
     }
     public boolean replace_text(char[] newText, int beginIndex, int endIndex) {
-        int replacedLength = beginIndex - endIndex;
-        
+        int replacedLength = endIndex - beginIndex;
         if(beginIndex < 0 
         || beginIndex > endIndex 
         || endIndex >= maxChars 
