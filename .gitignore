@@ -1,7 +1,17 @@
 ################
-## Submissions
+## General
 ################
-*.tar.gz
+
+TestBed.java
+
+################
+## Compressions
+################
+
+*.tar
+*.gz
+*.zip
+*.rar
 
 ################
 ## Java
